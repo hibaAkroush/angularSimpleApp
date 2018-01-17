@@ -2,13 +2,42 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+
 </head>
 <body ng-app="myApp" ng-controller="myCtrl">
-	<h1>{{name.first + name.last}}</h1>
-	<hello-world></hello-world>
+ 
+ <md-toolbar md-scroll-shrink>
+      <div class="md-toolbar-tools"> 
+        <p><strong>ngClassifieds</strong></p>
+        
+        <md-button >
+			<md-icon class="mdi mdi-plus-circle"></md-icon>
+            New Classified
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-conten class="md-padding" layout="row" layout-wrap>
+   		<md-card ng-repear="classified in classifieds flex="33">
+   			<img src="https://i.imgur.com/TduuFDF.jpg">
+   			<md-card-content>
+   				<div class="classified-info">
+   					<h2 class="md-title">{{classified.title}}</h2>
+   					<h3>{{classified.price}}</h3>
+   				</div>
+   			</md-card-content>
+   		</md-card> 	
+
+    </md-conten>
 
 	<script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-material/angular-material.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.js"></script>
 	<script type="text/javascript" src="scripts/app.js"></script>
 	<script type="text/javascript" src="components/classified.ctrl.js"></script>
+
 </body>
 </html>

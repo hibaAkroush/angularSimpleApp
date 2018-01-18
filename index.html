@@ -7,7 +7,7 @@
 
 </head>
 <body ng-app="myApp" ng-controller="myCtrl">
- 
+
  <md-toolbar md-scroll-shrink>
       <div class="md-toolbar-tools"> 
         <p><strong>ngClassifieds</strong></p>
@@ -18,15 +18,24 @@
         </md-button>
       </div>
     </md-toolbar>
+    <md-content class="md-padding" layout="row" layout-wrap>
+   		<md-card ng-repeat="classified in classifieds" flex="30">
 
-    <md-conten class="md-padding" layout="row" layout-wrap>
-   		<md-card ng-repear="classified in classifieds flex="33">
-   			<img src="https://i.imgur.com/TduuFDF.jpg">
+   			<img style = "width:300px; height:200px ;    display: block; margin-left: auto;  margin-right: auto " ng-src={{classified.image}}>
    			<md-card-content>
-   				<div class="classified-info">
+   				<div class="classified-info" ng-show = "!showContact">
    					<h2 class="md-title">{{classified.title}}</h2>
    					<h3>{{classified.price}}</h3>
+   					<h3>{{classified.posted }}</h3>
+   					<h3>{{classified.description}}</h3>
    				</div>
+   				<div ng-show = "showContact">
+   					<h3>{{classified.contact.name}}</h3>
+   					<h3>{{classified.contact.phone}}</h3>
+   					<h3>{{classified.contact.email}}</h3>
+   				</div>
+   				<button ng-click = "showContact = true">show contact</button>
+   				<button ng-click = "showContact = false">show details</button>	   				
    			</md-card-content>
    		</md-card> 	
 

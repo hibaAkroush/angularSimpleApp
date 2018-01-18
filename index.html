@@ -34,8 +34,34 @@
    					<h3>{{classified.contact.phone}}</h3>
    					<h3>{{classified.contact.email}}</h3>
    				</div>
-   				<button ng-click = "showContact = true">show contact</button>
-   				<button ng-click = "showContact = false">show details</button>	   				
+   				<button 
+	   				 ng-click = "showContact = true"
+	   				 ng-show = "!showContact"
+	   				 >
+	   				show contact
+   				</button>
+   				<button 
+   				ng-click = "showContact = false"
+   				ng-show= "showContact"
+   				>
+   				show details
+   				</button>
+   				<button
+   				ng-click = "showAdmin = true"
+   				ng-show= "!showAdmin"
+   				>
+   				Admin
+   			    </button>
+   				<button
+   				ng-show="showAdmin"
+   				ng-click = "showAdmin = false"
+   				>
+   				Close</button>	
+   				<br><br>
+   				<div ng-if="showAdmin">
+   					<button>edit</button>
+   					<button>delete</button>
+   				</div>   				
    			</md-card-content>
    		</md-card> 	
 
